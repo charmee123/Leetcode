@@ -1,0 +1,17 @@
+//Day 25 of #100daysofCode
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string ans="";
+        sort(strs.begin(),strs.end());
+        int num = strs.size();
+        string first = strs[0], last=strs[num-1];
+        for(int i = 0; i<min(first.size(),last.size()); i++){
+            if(first[i] != last[i]){
+                return ans;
+            }
+            ans = ans + first[i];
+        }
+        return ans;
+    }
+};
