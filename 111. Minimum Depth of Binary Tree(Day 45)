@@ -1,0 +1,15 @@
+class Solution {
+private:
+    int ReturnNumber(TreeNode *this_node){
+        if(this_node==nullptr) return 0;
+        int sum_left=ReturnNumber(this_node -> left);
+        int sum_right = ReturnNumber(this_node -> right);
+        if (sum_left == 0 || sum_right == 0) return sum_left + sum_right + 1;
+        return (sum_left >= sum_right) ? sum_right + 1: sum_left + 1;
+    }
+
+public:
+    int minDepth(TreeNode* root) {
+        return ReturnNumber(root);
+    }
+};
